@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_23_184358) do
+ActiveRecord::Schema.define(version: 2020_04_23_200817) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -28,6 +28,21 @@ ActiveRecord::Schema.define(version: 2020_04_23_184358) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_patients_on_user_id"
+  end
+
+  create_table "samples", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "name", default: "", null: false
+    t.string "sample_id"
+    t.decimal "amount", default: "0.0"
+    t.uuid "patient_id", null: false
+    t.uuid "user_id", null: false
+    t.uuid "test_id", null: false
+    t.integer "status"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["patient_id"], name: "index_samples_on_patient_id"
+    t.index ["test_id"], name: "index_samples_on_test_id"
+    t.index ["user_id"], name: "index_samples_on_user_id"
   end
 
   create_table "tests", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -63,5 +78,8 @@ ActiveRecord::Schema.define(version: 2020_04_23_184358) do
   end
 
   add_foreign_key "patients", "users"
+  add_foreign_key "samples", "patients"
+  add_foreign_key "samples", "tests"
+  add_foreign_key "samples", "users"
   add_foreign_key "tests", "users"
 end
