@@ -17,6 +17,13 @@
 
         <!-- Begin page -->
         <div id="wrapper">
+            <% flash.each do |name, msg|%>
+                <div class="container is-centered" id="flashBox">
+                  <%= content_tag :div, class: " alert alert-#{ name == "notice" ? "primary" : "danger" } ", role: "alert" do %>
+                      <p class="notice"><%= msg %></p>
+                  <%end%>
+                </div>
+            <%end%>
               <%= render 'shared/nav' if current_user  %>
             <!-- ========== Left Sidebar Start ========== -->
             <%= render 'shared/sidebar' if current_user %>
