@@ -4,18 +4,15 @@
     <title>LabFlow</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'home', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'login', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link href="theme/dist/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="theme/dist/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
-    <link href="theme/dist/assets/css/app.min.css" rel="stylesheet" type="text/css" />
 
   </head>
 
 <body>
 
-        <!-- Begin page -->
         <div id="wrapper">
             <% flash.each do |name, msg|%>
                 <div class="container is-centered" id="flashBox">
@@ -28,8 +25,7 @@
             <!-- ========== Left Sidebar Start ========== -->
             <%= render 'shared/sidebar' if current_user %>
             <div class="content-page">
-                <div class="content">
-                <%= javascript_pack_tag 'hello_react' %> 
+                <div class="content" id="content">
                     <%= yield %>
                 </div> 
                 <%= render 'shared/footer' if current_user %>
@@ -40,12 +36,12 @@
           <%= render 'shared/rightsidebar'if current_user  %>
         <!-- /Right-bar -->
         <!-- Right bar overlay-->
-        <div class="theme/dist/rightbar-overlay"></div>
+        <div class="http://127.0.0.1:3000/theme/dist/rightbar-overlay"></div>
         <!-- Vendor js -->
-        <script src="theme/dist/assets/js/vendor.min.js"></script>
+        <script src="http://127.0.0.1:3000/theme/dist/assets/js/vendor.min.js"></script>
 
         <!-- App js -->
-        <script src="theme/dist/assets/js/app.min.js"></script>
+        <script src="http://127.0.0.1:3000/theme/dist/assets/js/app.min.js"></script>
         
     </body>
   
