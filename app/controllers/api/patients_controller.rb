@@ -1,4 +1,4 @@
-class PatientsController < ApplicationController
+class Api::PatientsController < ApplicationController
   before_action :patient_params, only: [:create,:update]
 
   def index
