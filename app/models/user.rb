@@ -7,6 +7,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   enum gender: %i[male female]
   enum status: %i[active suspended leave termainated]
+  
+  has_many :patients
 
   def full_name
     "#{first_name} #{last_name}"

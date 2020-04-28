@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import { Formik, Form, Field, ErrorMessage, useField } from 'formik'
 import * as Yup from 'yup'
+import { connect } from 'react-redux'
+
+import { PostPatient } from '../../Actions/patientActions'
 import axios from 'axios'
 
 const validation = Yup.object({
@@ -9,17 +12,17 @@ const validation = Yup.object({
   middle_name: Yup.string().min(4, 'middle name must be more that 4 characters'),
   phone: Yup.number().required('Phone number is required')
 })
+const csrf = document.querySelector('[name="csrf-token"]').content
+delete axios.defaults.headers.common['X-CSRF-TOKEN']
+axios.defaults.headers.common['X-CSRF-TOKEN'] = csrf
 
 class AddPatient extends Component {
   render () {
     return (
       <div>
         <h2>Add a Patient</h2>
-
         <div className="row">
           <div className="col-md-6">
-            <h2>form</h2>
-
             <Formik
               initialValues={{
                 first_name: '',
@@ -31,11 +34,9 @@ class AddPatient extends Component {
               }}
               validationSchema={validation}
               onSubmit={(values, { setSubmitting }) => {
-                setTimeout(() => {
-                  console.log(values)
-                  alert(JSON.stringify(values, null, 2))
-                  setSubmitting(false)
-                }, 400)
+                setSubmitting(true)
+                this.props.postPatient({ patient: values }, csrf)
+                setSubmitting(false)
               }}
             >
               {({ isSubmitting }) => (
@@ -82,11 +83,40 @@ class AddPatient extends Component {
               )}
             </Formik>
           </div>
-          <div className="col-md-6">Patient Detail</div>
+          <div className="col-md-6">
+            <div className="pt-1 text-center">
+              <h2 className="text-success">n35i60</h2>
+              <div className="row">
+                <div className="col-md-4">
+                  <h6>Name</h6>
+                </div>
+                <div className="col-md">
+                  <h4>Sunny Asar</h4>
+                </div>
+              </div>
+
+              <div className="d-flex space-evenly">
+                <span>Name:</span>
+                <span>Terlumun</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     )
   }
 }
 
-export default AddPatient
+const mapStateToProps = (state) => {
+  return {
+    patient: state.patient
+  }
+}
+
+const mapDispatchToProps = (dispach) => {
+  return {
+    postPatient: (data, token) => dispach(PostPatient(data, token))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddPatient)

@@ -1,5 +1,5 @@
 class Api::PatientsController < ApplicationController
-  before_action :patient_params, only: [:create,:update]
+  # before_action :patients_params, only: [:create,:update]
 
   def index
     @patients = Patient.all
@@ -25,7 +25,7 @@ class Api::PatientsController < ApplicationController
   private
 
   def patients_params
-    params.require(:patient).permit(:first_name,:last_name,:email,:phone, :contact_address)
+    params.require(:patient).permit(:first_name,:last_name, :middle_name,:email,:phone, :contact_address)
   end
 
 end
