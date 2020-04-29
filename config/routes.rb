@@ -1,10 +1,12 @@
-Rails.application.routes.draw do
+# frozen_string_literal: true
 
-  devise_for :users, controllers: { registrations: 'registrations'}
+Rails.application.routes.draw do
+  devise_for :users, controllers: { registrations: 'registrations' }
   root 'home#index'
 
-  namespace :api, defaults: { format: 'json'} do
+  namespace :api, defaults: { format: 'json' } do
     resources :patients
+    resources :tests
   end
 
   get '*a', to: 'home#index'

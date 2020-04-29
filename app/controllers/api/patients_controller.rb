@@ -2,6 +2,7 @@
 
 class Api::PatientsController < ApplicationController
   # before_action :patients_params, only: [:create,:update]
+  before_action :set_patient, only: %i[show destroy]
 
   def index
     @patients = Patient.all
@@ -18,6 +19,10 @@ class Api::PatientsController < ApplicationController
     end
   end
 
+  def show
+    render json: @patient
+  end
+
   def update; end
 
   def destroy; end
@@ -26,5 +31,9 @@ class Api::PatientsController < ApplicationController
 
   def patients_params
     params.require(:patient).permit(:first_name, :last_name, :middle_name, :email, :phone, :contact_address)
+  end
+
+  def set_patient
+    @patient = Patient.find(params[:id])
   end
 end
