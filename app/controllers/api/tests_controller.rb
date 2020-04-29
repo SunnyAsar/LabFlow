@@ -10,11 +10,11 @@ class Api::TestsController < ApplicationController
 
   def create
     @test = Test.new(test_params)
-    @test.uid = current_user.id
+    @test.user_id = current_user.id
     if @test.save
       render json: @test, status: :ok
     else
-      render json: { error: @test.errors, message: 'somthing went wrong' }, status: :uprocessible_entity
+      render json: { error: @test.errors, message: 'somthing went wrong' }, status: :unprocessable_entity
     end
   end
 
@@ -23,7 +23,7 @@ class Api::TestsController < ApplicationController
       @test.update_attribute(test_params)
       render json: @test, status: :ok
     else
-      render json: { error: @test.errors }, status: :uprocessible_entity
+      render json: { error: @test.errors }, status: :unprocessable_entity
     end
   end
 
