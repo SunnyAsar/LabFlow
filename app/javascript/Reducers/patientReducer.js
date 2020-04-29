@@ -12,7 +12,7 @@ const patient = (state = initial_state, action) => {
     case SET_PATIENTS:
       return {
         ...state,
-        patients: [action.payload, ...patients]
+        patients: action.payload
       }
     default:
       return state

@@ -86,18 +86,11 @@ class AddPatient extends Component {
           <div className="col-md-6">
             <div className="pt-1 text-center">
               <h2 className="text-success">n35i60</h2>
-              <div className="row">
-                <div className="col-md-4">
-                  <h6>Name</h6>
-                </div>
-                <div className="col-md">
-                  <h4>Sunny Asar</h4>
-                </div>
-              </div>
-
-              <div className="d-flex space-evenly">
+              <div>
                 <span>Name:</span>
-                <span>Terlumun</span>
+                <span>
+                  <h5>Sunny Asar Terlumun</h5>
+                </span>
               </div>
             </div>
           </div>

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Api::PatientsController < ApplicationController
   # before_action :patients_params, only: [:create,:update]
 
@@ -12,20 +14,17 @@ class Api::PatientsController < ApplicationController
     if @patient.save
       render json: @patient, status: :ok
     else
-      render json: { error: @patient.errors, message: 'something horrible happened'}, status: :unprocessable_entity
+      render json: { error: @patient.errors, message: 'something horrible happened' }, status: :unprocessable_entity
     end
   end
 
-  def update
-  end
+  def update; end
 
-  def destroy
-  end
+  def destroy; end
 
   private
 
   def patients_params
-    params.require(:patient).permit(:first_name,:last_name, :middle_name,:email,:phone, :contact_address)
+    params.require(:patient).permit(:first_name, :last_name, :middle_name, :email, :phone, :contact_address)
   end
-
 end

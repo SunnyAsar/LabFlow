@@ -20,3 +20,17 @@ export const PostPatient = (data, token) => {
       })
   }
 }
+
+export const getPatients = () => {
+  return (dispatch) => {
+    axios
+      .get(`${BASE_URL}/patients`)
+      .then((res) => {
+        console.log(res.data)
+        dispatch({ type: SET_PATIENTS, payload: res.data })
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }
+}
