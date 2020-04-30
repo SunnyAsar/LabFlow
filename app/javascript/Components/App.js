@@ -6,6 +6,7 @@ import Patient from './Patients/Patient'
 import AddPatient from './Patients/AddPatient'
 import AddTest from './Tests/AddTest'
 import AddSample from './Samples/AddSample'
+import Samples from './Samples/Samples'
 
 class App extends Component {
   render () {
@@ -18,6 +19,7 @@ class App extends Component {
             <Route path="/patient/:id" component={Patient} />
             <Route path="/patients/new" component={AddPatient} />
             <Route path="/tests/new" component={AddTest} />
+            <Route exact path="/samples" component={Samples} />
             <Route path="/samples/new" component={AddSample} />
           </Switch>
         </Router>

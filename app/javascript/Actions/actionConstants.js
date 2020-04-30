@@ -3,3 +3,6 @@ export const SET_PATIENTS = 'SET_PATIENTS'
 
 export const SET_TESTS = 'SET_TESTS'
 export const ADD_TEST = 'ADD_TEST'
+
+export const SET_SAMPLES = 'SET_SAMPLES'
+export const SET_SAMPLE = 'SET_SAMPLE'
