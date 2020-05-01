@@ -1,3 +1,5 @@
+export const BASE_URL = 'http://127.0.0.1:3000/api'
+
 export const SET_PATIENT = 'SET_PATIENT'
 export const SET_PATIENTS = 'SET_PATIENTS'
 

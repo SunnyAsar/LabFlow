@@ -24,9 +24,10 @@ class AddTest extends Component {
                 processing_time: null
               }}
               validationSchema={validation}
-              onSubmit={(values, { setSubmitting }) => {
+              onSubmit={(values, { setSubmitting, restForm }) => {
                 setSubmitting(true)
                 this, this.props.postTest({ test: values })
+                restForm(true)
                 setSubmitting(false)
               }}
             >

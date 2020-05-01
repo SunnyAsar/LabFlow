@@ -1,6 +1,5 @@
-import { SET_TESTS, ADD_TEST } from '../Actions/actionConstants'
+import { SET_TESTS, ADD_TEST, BASE_URL } from '../Actions/actionConstants'
 import axios from 'axios'
-const BASE_URL = 'http://127.0.0.1:3000/api'
 
 export const getTests = () => {
   return (dispatch) => {

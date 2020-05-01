@@ -1,7 +1,5 @@
-import { SET_PATIENT, SET_PATIENTS } from './actionConstants'
+import { SET_PATIENT, SET_PATIENTS, BASE_URL } from './actionConstants'
 import axios from 'axios'
-
-const BASE_URL = 'http://127.0.0.1:3000/api'
 
 export const PostPatient = (data, token) => {
   return (dispatch) => {

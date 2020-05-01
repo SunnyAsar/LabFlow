@@ -44,9 +44,11 @@ class AddSample extends Component {
               }}
               validationSchema={validation}
               onSubmit={(values, { setSubmitting, resetForm }) => {
+                setSubmitting(true)
                 setTimeout(() => {
                   alert(JSON.stringify(values, null, 2))
                 }, 500)
+                setSubmitting(false)
                 resetForm(true)
               }}
               onChange={(values) => {
