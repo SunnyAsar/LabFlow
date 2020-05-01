@@ -1,37 +1,42 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>LabFlow</title>
-    <%= csrf_meta_tags %>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Shreyu - Admin & Dashboard Template</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+        <meta content="Coderthemes" name="author" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        
+
+    <%= csrf_meta_tags %> 
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag 'home', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'boot', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'boots', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'login', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link href="theme/dist/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
 
-  </head>
 
-<body>
+        
 
+    </head>
+
+    <body>
+
+        <!-- Begin page -->
         <div id="wrapper">
-            <% flash.each do |name, msg|%>
-                <div class="container is-centered" id="flashBox">
-                  <%= content_tag :div, class: " alert alert-#{ name == "notice" ? "primary" : "danger" } ", role: "alert" do %>
-                      <p class="notice"><%= msg %></p>
-                  <%end%>
-                </div>
-            <%end%>
-              <%= render 'shared/nav' if current_user  %>
+            <%= render 'shared/topbar' if current_user %>
+            <!-- Topbar Start -->
+            <!-- end Topbar -->
             <!-- ========== Left Sidebar Start ========== -->
-            <%= render 'shared/sidebar' if current_user %>
-            <div class="content-page">
-                <div class="content" id="content">
-                    <%= yield %>
-                </div> 
-                <%= render 'shared/footer' if current_user %>
-            </div>
+            <%= yield%>
+            <!-- ============================================================== -->
+            <!-- End Page content -->
+            <!-- ============================================================== -->
+
+
         </div>
+
         
     </body>
-  
 </html>

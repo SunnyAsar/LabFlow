@@ -1,0 +1,110 @@
+
+<nav class='navbar navbar-expand-lg navbar-light py-3  navbar-fixed-top'>
+      <a class='navbar-brand d-none d-lg-block' href='./'>
+        
+      </a>
+    <button
+        class='navbar-toggler'
+        type='button'
+        data-toggle='collapse'
+        data-target='#navbarSupportedContent'
+        aria-controls='navbarSupportedContent'
+        aria-expanded='false'
+        aria-label='Toggle navigation'
+      >
+      </button> 
+
+      <form class='form-inline search-form  ml-auto mr-4 d-none d-sm-flex '>
+        <div class='input-group align-items-center '>
+          <i class='material-icons mr-2 '>search</i>
+          <input
+            type='search'
+            placeholder='Search...'
+            aria-label='Search'
+            aria-describedby='search-patient'
+          />
+        </div>
+      </form>
+
+      <ul class='navbar-nav  flex-row'>
+        <li class='nav-item active mr-3  '>
+          <a class='nav-link text-success' href='/'>
+            Sunny Asar
+          </a>
+        </li>
+        <li class='nav-item'>
+          <a class='nav-link text-danger' href='/'>
+            Log out
+          </a>
+        </li>
+      </ul>
+</nav>
+
+<style>
+nav.navbar {
+  background-color: #fff;
+  font-family: 'Nunito Sans';
+}
+.navbar-brand {
+  font-weight: 700;
+}
+button.navbar-toggler {
+  border: 0;
+}
+.nav-item .nav-link {
+  font-weight: 300;
+}
+
+.search-form .input-group {
+  background-color: #f3f4f7;
+  padding: 0 5px;
+  border-radius: 4px;
+}
+
+.search-form .input-group:focus-within {
+  background-color: #ffffff;
+}
+.search-form i {
+  font-size: 24px;
+  color: #adb5bd;
+  height: 20px;
+  width: 20px;
+  transition: all ease-in 300ms;
+  transform: rotate(0deg);
+}
+.search-form .input-group:focus-within i {
+  color: black;
+  transform: rotate(90deg);
+  transition: all ease-in 300ms;
+}
+.search-form input {
+  background-color: transparent;
+  border: 0;
+  height: 38px;
+  font-size: 1rem;
+}
+.search-form input::placeholder {
+  font-size: 14px;
+  opacity: 1;
+  transition: opacity linear 300ms;
+  font-weight: 300;
+}
+
+.search-form input:focus::placeholder {
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity linear 300ms;
+}
+
+.search-form input:focus,
+.search-form input:active {
+  outline: none;
+}
+
+@media (max-width: 991px) {
+  nav.navbar {
+    justify-content: flex-end;
+  }
+}
+
+</style>

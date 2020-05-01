@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { Drawer, DrawerHeader, DrawerContent } from '@rmwc/drawer'
 import { MenuSurfaceAnchor, MenuSurface } from '@rmwc/menu'
 import { IconButton } from '@rmwc/icon-button'
+import { Button } from '@rmwc/button'
 import {
   List,
   CollapsibleList,
@@ -14,6 +15,9 @@ import {
   ListItemGraphic,
   ListDivider
 } from '@rmwc/list'
+
+import { Link } from 'react-router-dom'
+
 //styles
 // drawer
 import '@material/drawer/dist/mdc.drawer.css'
@@ -27,7 +31,7 @@ import '@rmwc/list/collapsible-list.css'
 import '@material/icon-button/dist/mdc.icon-button.css'
 import '@rmwc/icon/icon.css'
 import '@material/ripple/dist/mdc.ripple.css'
-import '../component styles/sidebar.css'
+import '../styles/sidebar.css'
 
 function Sidebar ({ toggle }) {
   const [open, setOpen] = React.useState(false)
@@ -45,7 +49,7 @@ function Sidebar ({ toggle }) {
                 <List>
                   <ListGroup>
                     <ListItem>
-                      <ListItemGraphic icon="person" className="material-icons-outlined" />
+                      {/* <ListItemGraphic icon="person" className="material-icons-outlined" /> */}
                       My Account
                     </ListItem>
                     <ListItem>
@@ -80,44 +84,64 @@ function Sidebar ({ toggle }) {
         <List>
           <ListGroup>
             <ListGroupSubheader>NAVIGATION</ListGroupSubheader>
-            <ListItem className="single">
-              <ListItemGraphic
-                icon="home"
-                className="material-icons-outlined"
-                // style={{ fontSize: '32px' }}
-              />
-              Dashboard <div className="div ml-auto badge-success badge">1</div>
-            </ListItem>
+            <Button tag={Link} to="/">
+              <ListItem className="single">
+                <ListItemGraphic
+                  icon="home"
+                  className="material-icons-outlined"
+                  // style={{ fontSize: '32px' }}
+                />
+                Dashboard
+                {/* <div className="div ml-auto badge-success badge">1</div> */}
+              </ListItem>
+            </Button>
           </ListGroup>
           <ListGroup>
-            <ListGroupSubheader>APPS</ListGroupSubheader>
-            <ListItem className="single">
-              <ListItemGraphic icon="insert_invitation" className="material-icons-outlined" />
-              Calendar
-            </ListItem>
+            <ListGroupSubheader>Core</ListGroupSubheader>
+
             <CollapsibleList
               handle={
                 <ListItem>
                   <ListItemGraphic icon="inbox" className="material-icons-outlined" />
-                  Email <ListItemMeta icon="navigate_next" />
+                  Patients
+                  <ListItemMeta icon="navigate_next" />
                 </ListItem>
               }
             >
-              <SimpleListItem text="Inbox" />
-              <SimpleListItem text="Read" />
-              <SimpleListItem text="Compose" />
+              <Button tag={Link} to="/patients">
+                <ListItem>Patients List</ListItem>
+              </Button>
+              <Button tag={Link} to="/patients/new">
+                <ListItem>Add Patient</ListItem>
+              </Button>
             </CollapsibleList>
             <CollapsibleList
               handle={
                 <ListItem>
                   <ListItemGraphic icon="business_center" className="material-icons-outlined" />
-                  Projects <ListItemMeta icon="navigate_next" />
+                  Test Samples <ListItemMeta icon="navigate_next" />
                 </ListItem>
               }
             >
-              <SimpleListItem text="List" />
-              <SimpleListItem text="Details" />
+              <Button tag={Link} to="/samples">
+                <ListItem> Samples</ListItem>
+              </Button>
+              <Button tag={Link} to="/samples/new">
+                <ListItem>Add Sample</ListItem>
+              </Button>
             </CollapsibleList>
+
+            <Button tag={Link} to="/tests/new">
+              <ListItem className="single">
+                <ListItemGraphic
+                  icon="insert_invitation"
+                  className="material-icons-outlined"
+                  // style={{ fontSize: '32px' }}
+                />
+                Tests
+                {/* <div className="div ml-auto badge-success badge">1</div> */}
+              </ListItem>
+            </Button>
             <CollapsibleList
               handle={
                 <ListItem>

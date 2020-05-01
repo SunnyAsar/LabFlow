@@ -11,6 +11,7 @@ import thunk from 'redux-thunk'
 import rootReducer from '../Reducers'
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
+import '../assets/iconfont/material-icons.css'
 
 const store = createStore(rootReducer, {}, composeWithDevTools(applyMiddleware(thunk)))
 
@@ -19,6 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
     <Provider store={store}>
       <App />
     </Provider>,
-    document.getElementById('content').appendChild(document.createElement('div'))
+    document.getElementById('wrapper').appendChild(document.createElement('div'))
   )
 })
