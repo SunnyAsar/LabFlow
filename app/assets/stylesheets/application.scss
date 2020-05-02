@@ -14,33 +14,3 @@
  *= require_self
  */
 @import 'bootstrap/scss/bootstrap';
-:root {
-  --blue: #5369f8;
-  --indigo: #564ab1;
-  --purple: #6f42c1;
-  --pink: #e83e8c;
-  --red: #ff5c75;
-  --orange: #f77e53;
-  --yellow: #ffbe0b;
-  --green: #43d39e;
-  --teal: #1ce1ac;
-  --cyan: #25c2e3;
-  --white: #fff;
-  --gray: #6c757d;
-  --gray-dark: #343a40;
-  --primary: #5369f8;
-  --secondary: #1e2139;
-  --success: #43d39e;
-  --info: #25c2e3;
-  --warning: #ffbe0b;
-  --danger: #ff5c75;
-  --light: #f8f9fa;
-  --dark: #343a40;
-  --breakpoint-xs: 0;
-  --breakpoint-sm: 576px;
-  --breakpoint-md: 768px;
-  --breakpoint-lg: 992px;
-  --breakpoint-xl: 1200px;
-  --font-family-sans-serif: "Nunito Sans", sans-serif;
-  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-}

@@ -142,72 +142,55 @@ function Sidebar ({ toggle }) {
                 {/* <div className="div ml-auto badge-success badge">1</div> */}
               </ListItem>
             </Button>
-            <CollapsibleList
-              handle={
-                <ListItem>
-                  <ListItemGraphic icon="bookmark_border" className="material-icons-outlined" />
-                  Tasks <ListItemMeta icon="navigate_next" />
-                </ListItem>
-              }
-            >
-              <SimpleListItem text="List" />
-              <SimpleListItem text="Kanban Board" />
-            </CollapsibleList>
           </ListGroup>
           <ListGroup>
-            <ListGroupSubheader>CUSTOM</ListGroupSubheader>
+            <ListGroupSubheader>Accounting</ListGroupSubheader>
             <CollapsibleList
               handle={
                 <ListItem>
                   <ListItemGraphic icon="description" className="material-icons-outlined" />
-                  Pages <ListItemMeta icon="navigate_next" />
+                  Billing <ListItemMeta icon="navigate_next" />
                 </ListItem>
               }
             >
-              <SimpleListItem text="Starter" />
-              <SimpleListItem text="Profile" />
-              <SimpleListItem text="Activity" />
-              <SimpleListItem text="Invoice" />
-              <SimpleListItem text="Pricing" />
-              <SimpleListItem text="Maintenance" />
-              <SimpleListItem text="Login" />
-              <SimpleListItem text="Register" />
-              <SimpleListItem text="Recover Password" />
-              <SimpleListItem text="Confirm" />
-              <SimpleListItem text="Error 404" />
+              <SimpleListItem text="Bills" />
             </CollapsibleList>
             <CollapsibleList
               handle={
                 <ListItem>
                   <ListItemGraphic icon="web" className="material-icons-outlined" />
-                  Layouts <ListItemMeta icon="navigate_next" />
+                  Income/Expenses <ListItemMeta icon="navigate_next" />
                 </ListItem>
               }
             >
-              <SimpleListItem text="Horizontal Nav" />
-              <SimpleListItem text="RTL" />
-              <SimpleListItem text="Dark" />
-              <SimpleListItem text="Scrollable" />
-              <SimpleListItem text="Boxed" />
-              <SimpleListItem text="With Pre-loader" />
-              <SimpleListItem text="Dark Side Nav" />
+              <SimpleListItem text="Transactions" />
+              <SimpleListItem text="Add " />
+            </CollapsibleList>
+            <CollapsibleList
+              handle={
+                <ListItem>
+                  <ListItemGraphic icon="web" className="material-icons-outlined" />
+                  Inventory <ListItemMeta icon="navigate_next" />
+                </ListItem>
+              }
+            >
+              <SimpleListItem text="Suppiers" />
+              <SimpleListItem text="Add stock" />
             </CollapsibleList>
           </ListGroup>
           <ListGroup>
-            <ListGroupSubheader>COMPONENTS</ListGroupSubheader>
+            <ListGroupSubheader>Human Resources</ListGroupSubheader>
             <CollapsibleList
               handle={
                 <ListItem>
                   <ListItemGraphic icon="widgets" className="material-icons-outlined" />
-                  UI Elements <ListItemMeta icon="navigate_next" />
+                  Staffs <ListItemMeta icon="navigate_next" />
                 </ListItem>
               }
             >
-              <SimpleListItem text="UI Elements" />
-              <SimpleListItem text="Bootstrap UI" />
-              <SimpleListItem text="Widgets" />
+              <SimpleListItem text="All" />
             </CollapsibleList>
-            <CollapsibleList
+            {/* <CollapsibleList
               handle={
                 <ListItem>
                   <ListItemGraphic icon="description" className="material-icons-outlined" />
@@ -236,7 +219,7 @@ function Sidebar ({ toggle }) {
             >
               <SimpleListItem text="Basic" />
               <SimpleListItem text="Advanced" />
-            </CollapsibleList>
+            </CollapsibleList> */}
           </ListGroup>
         </List>
       </DrawerContent>
