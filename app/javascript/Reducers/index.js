@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux'
-import PatientReducer from './patientReducer'
-import TestReducer from './testReducer'
+import patientReducer from './patientReducer'
+import testReducer from './testReducer'
+import sampleReducer from './sampleReducer'
 
 const rootReducer = combineReducers({
-  patient: PatientReducer,
-  test: TestReducer
+  patient: patientReducer,
+  test: testReducer,
+  sample: sampleReducer
 })
 
 export default rootReducer

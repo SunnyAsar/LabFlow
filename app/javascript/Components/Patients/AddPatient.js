@@ -20,12 +20,12 @@ class AddPatient extends Component {
           <div className="col-md-6">
             <div className="pt-1 text-center">
               <h2 className="text-success">n35i60</h2>
-              <div>
+              {/* <div>
                 <span>Name:</span>
                 <span>
                   <h5>Sunny Asar Terlumun</h5>
                 </span>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

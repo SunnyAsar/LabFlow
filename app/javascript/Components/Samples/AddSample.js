@@ -3,12 +3,18 @@ import { getTests } from '../../Actions/testActions'
 import { connect } from 'react-redux'
 import { Formik, Form, FieldArray, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
+import { postSamples } from '../../Actions/sampleActions'
 
 const validation = Yup.object({
   patient_id: Yup.string()
-    .min(6, "Patient ID can't be less than 6 characters")
-    .max(6, "Patient ID can't be more than 6 characters")
-    .required('Patient ID is required')
+    .min(8, "Patient ID can't be less than 6 characters")
+    .max(8, "Patient ID can't be more than 6 characters")
+    .required('Patient ID is required'),
+  samples: Yup.array().of(
+    Yup.object({
+      name: Yup.string().required("sample name can't be blank")
+    })
+  )
 })
 
 class AddSample extends Component {
@@ -37,19 +43,17 @@ class AddSample extends Component {
                 samples: [
                   {
                     name: '',
-                    test_id: '',
-                    id: '' + Math.random()
+                    test_id: ''
                   }
                 ]
               }}
               validationSchema={validation}
               onSubmit={(values, { setSubmitting, resetForm }) => {
                 setSubmitting(true)
-                setTimeout(() => {
-                  alert(JSON.stringify(values, null, 2))
-                }, 500)
+                const { history } = this.props
+                this.props.postSample({ sample: values }, history)
+
                 setSubmitting(false)
-                resetForm(true)
               }}
               onChange={(values) => {
                 alert(values)
@@ -67,7 +71,7 @@ class AddSample extends Component {
                         <button
                           type="button"
                           className="btn btn-success btn-sm mb-3"
-                          onClick={() => arrayHelpers.push({ name: '', test_id: '', id: '' + Math.random() })}
+                          onClick={() => arrayHelpers.push({ name: '', test_id: '' })}
                         >
                           Add Sample
                         </button>
@@ -80,6 +84,11 @@ class AddSample extends Component {
                                   placeholder="Sample name"
                                   className="form-control"
                                 />
+                                <ErrorMessage
+                                  name={`samples.${index}.name`}
+                                  component="div"
+                                  className="text-danger pl-2"
+                                />
                               </div>
                               <div className=" col-md-5 form-group">
                                 <Field as="select" name={`samples.${index}.test_id`} className="form-control">
@@ -88,6 +97,11 @@ class AddSample extends Component {
                                   </option>
                                   {selectOptions}
                                 </Field>
+                                <ErrorMessage
+                                  name={`samples.${index}.test_id`}
+                                  component="div"
+                                  className="text-danger pl-2"
+                                />
                               </div>
 
                               <div className="col-md-2 form-group">
@@ -118,8 +132,8 @@ class AddSample extends Component {
             </Formik>
           </div>
           <div className="col-md-4 text-center">
-            <h2 className="">Bill</h2>
-            <h1 className="text-info">{this.state.total}</h1>
+            {/* <h2 className="">Bill</h2>
+            <h1 className="text-info">{this.state.total}</h1> */}
           </div>
         </div>
       </div>
@@ -135,7 +149,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchTests: () => dispatch(getTests())
+    fetchTests: () => dispatch(getTests()),
+    postSample: (data, history) => dispatch(postSamples(data, history))
   }
 }
 
