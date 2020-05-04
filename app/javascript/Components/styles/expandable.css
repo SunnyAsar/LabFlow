@@ -1,0 +1,102 @@
+ul.list-group {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+button.expandable-btn,
+a.expandable-btn {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 12px 20px 12px 30px;
+  color: #4b4b5a;
+  font-size: 15px;
+  border: 0;
+  transition: all linear 300ms;
+  font-weight: 300;
+  background-color: transparent;
+  position: relative;
+  white-space: nowrap;
+}
+a.expandable-btn,
+a:hover,
+a:active,
+a:focus {
+  outline: none;
+  text-decoration: none;
+}
+
+a.expandable-btn .badge {
+  padding: 0.3em 0.5em;
+  font-size: 80%;
+  font-weight: 600;
+  border-radius: 0.2rem;
+}
+
+button.expandable-btn::before,
+a.expandable-btn::before {
+  display: block;
+  content: '';
+  background-color: #5369f8;
+  position: absolute;
+  left: 0;
+  width: 0px;
+  top: 0;
+  bottom: 0;
+  transition: width linear 200ms;
+}
+
+button:hover,
+button:active,
+button:focus,
+a:hover,
+a:active,
+a:focus {
+  color: #5369f8;
+  background-color: #f7f7ff;
+  transition: all linear 200ms;
+  outline: none;
+}
+
+button.expandable-btn:active::before,
+button.expandable-btn:focus::before,
+a.expandable-btn:active::before,
+a.expandable-btn:focus::before {
+  width: 3px;
+}
+
+/* button.expandable-btn i {
+  font-size: 20px; */
+
+.collapsible-list button[aria-expanded='true'] .meta-tag {
+  transform: rotate(90deg);
+  transition: transform ease-in-out 200ms;
+}
+
+.collapsible-list button[aria-expanded='false'] .meta-tag {
+  transform: rotate(0deg);
+  transition: transform ease-in-out 200ms;
+}
+
+.link-box {
+  padding-left: 43px;
+}
+
+.link-box .link-item {
+  display: block;
+  text-decoration: none;
+  padding: 8px 20px;
+  color: #4b4b5a;
+}
+
+div.nav-content i.item-icon,
+div.nav-content i.meta-tag {
+  font-size: 20px;
+}
+/* imple scrollbar size */
+.simplebar-scrollbar {
+  width: 8px;
+}

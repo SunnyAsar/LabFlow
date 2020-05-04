@@ -1,0 +1,203 @@
+@font-face {
+  font-family: 'Nunito Sans';
+  src: url('./assets/font/NunitoSans-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: 'Nunito Sans';
+  src: url('./assets/font/NunitoSans-Light.ttf') format('truetype');
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'Nunito Sans';
+  src: url('./assets/font/NunitoSans-Regular.ttf') format('truetype');
+  font-style: 400;
+}
+@font-face {
+  font-family: 'Nunito Sans';
+  src: url('./assets/font/NunitoSans-SemiBold.ttf') format('truetype');
+  font-style: 600;
+}
+@font-face {
+  font-family: 'Nunito Sans';
+  src: url('./assets/font/NunitoSans-Bold.ttf') format('truetype');
+  font-weight: 700;
+}
+@font-face {
+  font-family: 'Nunito Sans';
+  src: url('./assets/font/NunitoSans-ExtraBold.ttf') format('truetype');
+  font-style: 800;
+}
+@font-face {
+  font-family: 'Nunito Sans';
+  src: url('./assets/font/NunitoSans-Black.ttf') format('truetype');
+  font-weight: 900;
+}
+:root {
+  --blue: #5369f8;
+  --indigo: #564ab1;
+  --purple: #6f42c1;
+  --pink: #e83e8c;
+  --red: #ff5c75;
+  --orange: #f77e53;
+  --yellow: #ffbe0b;
+  --green: #43d39e;
+  --teal: #1ce1ac;
+  --cyan: #25c2e3;
+  --white: #fff;
+  --gray: #6c757d;
+  --gray-dark: #343a40;
+  --primary: #5369f8;
+  --secondary: #1e2139;
+  --success: #43d39e;
+  --info: #25c2e3;
+  --warning: #ffbe0b;
+  --danger: #ff5c75;
+  --light: #f8f9fa;
+  --dark: #343a40;
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --font-family-sans-serif: 'Nunito Sans', sans-serif;
+  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+}
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+html {
+  width: 100%;
+  height: 100%;
+  text-rendering: optimizeLegibility;
+  font-kerning: normal;
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  font-family: sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f3f4f7;
+  overflow-y: hidden;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+.App,
+#root {
+  height: 100%;
+}
+nav.navbar {
+  background-color: #fff;
+  font-family: 'Nunito Sans';
+}
+.navbar-brand {
+  font-weight: 700;
+}
+button.navbar-toggler {
+  border: 0;
+}
+.nav-item .nav-link {
+  font-weight: 300;
+}
+
+.search-form .input-group {
+  background-color: #f3f4f7;
+  padding: 0 5px;
+  border-radius: 4px;
+}
+
+.search-form .input-group:focus-within {
+  background-color: #ffffff;
+}
+.search-form i {
+  font-size: 24px;
+  color: #adb5bd;
+  height: 20px;
+  width: 20px;
+  transition: all ease-in 300ms;
+  transform: rotate(0deg);
+}
+.search-form .input-group:focus-within i {
+  color: black;
+  transform: rotate(90deg);
+  transition: all ease-in 300ms;
+}
+.search-form input {
+  background-color: transparent;
+  border: 0;
+  height: 38px;
+  font-size: 1rem;
+}
+.search-form input::placeholder {
+  font-size: 14px;
+  opacity: 1;
+  transition: opacity linear 300ms;
+  font-weight: 300;
+}
+
+.search-form input:focus::placeholder {
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity linear 300ms;
+}
+
+.search-form input:focus,
+.search-form input:active {
+  outline: none;
+}
+
+@media (max-width: 991px) {
+  nav.navbar {
+    justify-content: flex-end;
+  }
+}
+
+section.main-section {
+  padding: 0;
+  position: relative;
+}
+.main-area {
+  margin-left: auto;
+  width: calc(100% - 250px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+}
+
+button.material-icons.toggle-btn {
+  font-size: 36px;
+  background-color: transparent;
+  position: fixed;
+  z-index: 100;
+  border: 0;
+  top: 16px;
+  left: 16px;
+  padding: 0;
+  outline: none;
+}
+
+@media (min-width: 991px) {
+  button.material-icons.toggle-btn {
+    display: none;
+  }
+}
+
+@media (max-width: 991px) {
+  .main-area {
+    width: 100%;
+  }
+}
