@@ -1,7 +1,7 @@
 import { SET_PATIENT, SET_PATIENTS, BASE_URL } from './actionConstants'
 import axios from 'axios'
 
-export const PostPatient = (data, token) => {
+export const PostPatient = (data, token, history) => {
   return (dispatch) => {
     console.log('in action', token)
     axios
@@ -12,6 +12,7 @@ export const PostPatient = (data, token) => {
       })
       .then((res) => {
         dispatch({ type: SET_PATIENT, payload: res.data })
+        history.push('/patients')
       })
       .catch((err) => {
         console.log(err.response.data)
