@@ -6,7 +6,7 @@ import SimpleBar from 'simplebar-react'
 
 import { ListItem, ListGroup, Collapsibles, CollapsibleList, ListHeader } from './ExpandableMenu'
 
-import '../styles/sidebar.css'
+// import '../styles/sidebar.css'
 
 class Aside extends Component {
   constructor (props) {

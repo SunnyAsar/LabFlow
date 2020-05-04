@@ -1,6 +1,6 @@
 import React from 'react'
 // import '../component styles/expandableMenu.css';
-import '../styles/expandable.css'
+// import '../styles/expandable.css'
 import { camelCase } from 'lodash'
 
 import { Link } from 'react-router-dom'

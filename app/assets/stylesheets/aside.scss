@@ -1,0 +1,341 @@
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+html {
+  width: 100%;
+  height: 100%;
+  text-rendering: optimizeLegibility;
+  font-kerning: normal;
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  font-family: sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f3f4f7;
+  overflow-y: hidden;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+.App,
+#root {
+  height: 100%;
+}
+nav.navbar {
+  background-color: #fff;
+  font-family: 'Nunito Sans';
+}
+.navbar-brand {
+  font-weight: 700;
+}
+button.navbar-toggler {
+  border: 0;
+}
+.nav-item .nav-link {
+  font-weight: 300;
+}
+
+.search-form .input-group {
+  background-color: #f3f4f7;
+  padding: 0 5px;
+  border-radius: 4px;
+}
+
+.search-form .input-group:focus-within {
+  background-color: #ffffff;
+}
+.search-form i {
+  font-size: 24px;
+  color: #adb5bd;
+  height: 20px;
+  width: 20px;
+  transition: all ease-in 300ms;
+  transform: rotate(0deg);
+}
+.search-form .input-group:focus-within i {
+  color: black;
+  transform: rotate(90deg);
+  transition: all ease-in 300ms;
+}
+.search-form input {
+  background-color: transparent;
+  border: 0;
+  height: 38px;
+  font-size: 1rem;
+}
+.search-form input::placeholder {
+  font-size: 14px;
+  opacity: 1;
+  transition: opacity linear 300ms;
+  font-weight: 300;
+}
+
+.search-form input:focus::placeholder {
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity linear 300ms;
+}
+
+.search-form input:focus,
+.search-form input:active {
+  outline: none;
+}
+
+@media (max-width: 991px) {
+  nav.navbar {
+    justify-content: flex-end;
+  }
+}
+
+section.main-section {
+  padding: 0;
+  position: relative;
+}
+.main-area {
+  margin-left: auto;
+  width: calc(100% - 250px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+}
+
+button.material-icons.toggle-btn {
+  font-size: 36px;
+  background-color: transparent;
+  position: fixed;
+  z-index: 100;
+  border: 0;
+  top: 16px;
+  left: 16px;
+  padding: 0;
+  outline: none;
+}
+
+@media (min-width: 991px) {
+  button.material-icons.toggle-btn {
+    display: none;
+  }
+}
+
+@media (max-width: 991px) {
+  .main-area {
+    width: 100%;
+  }
+}
+
+aside {
+  position: fixed;
+  left: 0;
+  top: 72px;
+  bottom: 0;
+  z-index: 10;
+  height: 100%;
+  overflow-y: visible;
+  padding-bottom: 50px;
+  transition: transform ease-out 300ms;
+  width: 250px;
+  transform: translateX(-250px);
+}
+
+aside.open {
+  transition: transform ease-in 300ms;
+  transform: translateX(0);
+}
+
+aside .sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  overflow-y: visible;
+}
+
+.profile {
+  color: #4b4b5a;
+  padding: 15px 20px 15px 30px;
+  display: flex;
+  justify-content: space-between;
+}
+.profile .name {
+  font-weight: 600;
+  font-size: 16px;
+}
+.profile .privilege {
+  font-weight: 400;
+  font-size: 12px;
+}
+.profile .dropdown {
+  align-self: center;
+}
+.profile .dropdown button {
+  width: 18px;
+  height: 19.2px;
+  display: flex;
+  padding: 0;
+  outline: none;
+  padding: 0;
+  width: 18px;
+  height: 19.2px;
+  background-color: rgba(75, 75, 90, 0.1);
+  font-size: 18px;
+  /* font-weight: bold; */
+  border: 0;
+}
+.profile .dropdown-item {
+  display: flex;
+  padding: 0.35rem 1.5rem;
+}
+.profile .dropdown-item i {
+  margin-right: 10px;
+  align-self: center;
+  font-size: 20px;
+}
+.profile .dropdown-menu.show {
+  transition: all ease-in-out 300ms;
+}
+.profile .dropdown button:focus,
+.profile .dropdown button :active,
+.profile .dropdown button {
+  outline: none;
+}
+.profile .dropdown button::after {
+  content: unset;
+}
+/* .nav-content {
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
+ 
+  height: 100%;
+}
+.nav-content::-webkit-scrollbar {
+  display: none;
+} */
+.nav-content {
+  max-height: 100%;
+  padding-bottom: 30px;
+}
+.nav-content .list-header {
+  padding: 15px 30px 10px 30px;
+  letter-spacing: 0.05em;
+  pointer-events: none;
+  cursor: default;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #4b4b5a;
+}
+
+ul.list-group {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+button.expandable-btn,
+a.expandable-btn {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 12px 20px 12px 30px;
+  color: #4b4b5a;
+  font-size: 15px;
+  border: 0;
+  transition: all linear 300ms;
+  font-weight: 300;
+  background-color: transparent;
+  position: relative;
+  white-space: nowrap;
+}
+a.expandable-btn,
+a:hover,
+a:active,
+a:focus {
+  outline: none;
+  text-decoration: none;
+}
+
+a.expandable-btn .badge {
+  padding: 0.3em 0.5em;
+  font-size: 80%;
+  font-weight: 600;
+  border-radius: 0.2rem;
+}
+
+button.expandable-btn::before,
+a.expandable-btn::before {
+  display: block;
+  content: '';
+  background-color: #5369f8;
+  position: absolute;
+  left: 0;
+  width: 0px;
+  top: 0;
+  bottom: 0;
+  transition: width linear 200ms;
+}
+
+button:hover,
+button:active,
+button:focus,
+a:hover,
+a:active,
+a:focus {
+  color: #5369f8;
+  background-color: #f7f7ff;
+  transition: all linear 200ms;
+  outline: none;
+}
+
+button.expandable-btn:active::before,
+button.expandable-btn:focus::before,
+a.expandable-btn:active::before,
+a.expandable-btn:focus::before {
+  width: 3px;
+}
+
+/* button.expandable-btn i {
+  font-size: 20px; */
+
+.collapsible-list button[aria-expanded='true'] .meta-tag {
+  transform: rotate(90deg);
+  transition: transform ease-in-out 200ms;
+}
+
+.collapsible-list button[aria-expanded='false'] .meta-tag {
+  transform: rotate(0deg);
+  transition: transform ease-in-out 200ms;
+}
+
+.link-box {
+  padding-left: 43px;
+}
+
+.link-box .link-item {
+  display: block;
+  text-decoration: none;
+  padding: 8px 20px;
+  color: #4b4b5a;
+}
+
+div.nav-content i.item-icon,
+div.nav-content i.meta-tag {
+  font-size: 20px;
+}
+/* imple scrollbar size */
+.simplebar-scrollbar {
+  width: 8px;
+}
