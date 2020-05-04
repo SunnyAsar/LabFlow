@@ -21,7 +21,7 @@ const App = () => {
         <div class="left-side-menu">
           <div class="sidebar-content">
             <div id="sidebar-menu" className="slimscroll-menu">
-              <Sidebar toggle={open} />
+              {/* <Sidebar toggle={open} /> */}
             </div>
             <div class="clearfix" />
           </div>
