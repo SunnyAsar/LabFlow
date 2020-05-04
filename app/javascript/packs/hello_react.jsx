@@ -11,7 +11,6 @@ import thunk from 'redux-thunk'
 import rootReducer from '../Reducers'
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
-import '../assets/iconfont/material-icons.css'
 
 const store = createStore(rootReducer, {}, composeWithDevTools(applyMiddleware(thunk)))
 
