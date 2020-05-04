@@ -8,7 +8,7 @@ import { ListItem, ListGroup, Collapsibles, CollapsibleList, ListHeader } from '
 
 import '../styles/sidebar.css'
 
-class Sidebar extends Component {
+class Aside extends Component {
   constructor (props) {
     super(props)
     this.aside = React.createRef()
@@ -82,4 +82,4 @@ class Sidebar extends Component {
   }
 }
 
-export default Sidebar
+export default Aside

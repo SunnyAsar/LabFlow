@@ -8,7 +8,7 @@ import AddTest from './Tests/AddTest'
 import AddSample from './Samples/AddSample'
 import Samples from './Samples/Samples'
 
-import Sidebar from './Layout/Sidebar'
+import Aside from './Layout/Aside'
 import 'simplebar/dist/simplebar.min.css'
 // import './styles/app.css'
 
@@ -21,7 +21,7 @@ const App = () => {
         <div class="left-side-menu">
           <div class="sidebar-content">
             <div id="sidebar-menu" className="slimscroll-menu">
-              <Sidebar toggle={open} />
+              <Aside toggle={open} />
             </div>
             <div class="clearfix" />
           </div>
