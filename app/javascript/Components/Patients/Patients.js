@@ -1,6 +1,25 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { getPatients } from '../../Actions/patientActions'
+
+const Patient = ({ patient }) => {
+  return (
+    <tr>
+      <th scope="row" className="text-success">
+        {patient.pid}
+      </th>
+      <td>{patient.first_name}</td>
+      <td>{patient.last_name}</td>
+      <td>{patient.phone}</td>
+      <td>
+        <Link to={`/patients/${patient.id}`} className="btn btn-sm btn-rounded btn-outline-success">
+          View
+        </Link>
+      </td>
+    </tr>
+  )
+}
 
 class Patients extends Component {
   componentDidMount () {
@@ -8,26 +27,12 @@ class Patients extends Component {
   }
 
   render () {
-    const TableData = this.props.patients.map((patient) => {
-      return (
-        <tr>
-          <th scope="row" className="text-success">
-            {patient.pid}
-          </th>
-          <td>{patient.first_name}</td>
-          <td>{patient.last_name}</td>
-          <td>{patient.phone}</td>
-          <td>
-            <button className="btn btn-success btn-sm">View</button>
-          </td>
-        </tr>
-      )
-    })
+    const TableData = this.props.patients.map((patient) => <Patient key={patient.id} patient={patient} />)
     return (
       <div>
         <h2>Patients</h2> <br />
         <div>
-          <table class="table table-striped">
+          <table className="table table-striped">
             <thead className="thead-dark">
               <tr>
                 <th scope="col">#Patient ID</th>
