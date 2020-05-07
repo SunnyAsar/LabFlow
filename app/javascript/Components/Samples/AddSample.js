@@ -37,99 +37,102 @@ class AddSample extends Component {
 
         <div className="row">
           <div className="col-md-8">
-            <Formik
-              initialValues={{
-                patient_id: this.state.total ? this.state.total : '',
-                samples: [
-                  {
-                    name: '',
-                    test_id: ''
-                  }
-                ]
-              }}
-              validationSchema={validation}
-              onSubmit={(values, { setSubmitting, resetForm }) => {
-                setSubmitting(true)
-                const { history } = this.props
-                this.props.postSample({ sample: values }, history)
+            <div className="card">
+              <div className="card-body">
+                <Formik
+                  initialValues={{
+                    patient_id: this.state.total ? this.state.total : '',
+                    samples: [
+                      {
+                        name: '',
+                        test_id: ''
+                      }
+                    ]
+                  }}
+                  validationSchema={validation}
+                  onSubmit={(values, { setSubmitting, resetForm }) => {
+                    setSubmitting(true)
+                    const { history } = this.props
+                    this.props.postSample({ sample: values }, history)
 
-                setSubmitting(false)
-              }}
-              onChange={(values) => {
-                alert(values)
-              }}
-            >
-              {({ values, isSubmitting }) => (
-                <Form>
-                  <div className="form-group">
-                    <Field name="patient_id" placeholder="Patient unique ID" className="form-control" />
-                    <ErrorMessage name="patient_id" component="div" className="text-danger pl-2" />
-                  </div>
-                  <FieldArray name="samples">
-                    {(arrayHelpers) => (
-                      <div>
-                        <button
-                          type="button"
-                          className="btn btn-success btn-sm mb-3"
-                          onClick={() => arrayHelpers.push({ name: '', test_id: '' })}
-                        >
-                          Add Sample
-                        </button>
-                        {values.samples.map((sample, index) => {
-                          return (
-                            <div className="row" key={index}>
-                              <div className=" col-md-5 form-group">
-                                <Field
-                                  name={`samples.${index}.name`}
-                                  placeholder="Sample name"
-                                  className="form-control"
-                                />
-                                <ErrorMessage
-                                  name={`samples.${index}.name`}
-                                  component="div"
-                                  className="text-danger pl-2"
-                                />
-                              </div>
-                              <div className=" col-md-5 form-group">
-                                <Field as="select" name={`samples.${index}.test_id`} className="form-control">
-                                  <option value="" disabled selected>
-                                    Select a test
-                                  </option>
-                                  {selectOptions}
-                                </Field>
-                                <ErrorMessage
-                                  name={`samples.${index}.test_id`}
-                                  component="div"
-                                  className="text-danger pl-2"
-                                />
-                              </div>
-
-                              <div className="col-md-2 form-group">
-                                <button
-                                  type="button"
-                                  className="btn btn-sm btn-danger p-1 "
-                                  onClick={() => arrayHelpers.remove(index)}
-                                >
-                                  Remove
-                                </button>
-                              </div>
-                            </div>
-                          )
-                        })}
+                    setSubmitting(false)
+                  }}
+                  onChange={(values) => {
+                    alert(values)
+                  }}
+                >
+                  {({ values, isSubmitting }) => (
+                    <Form>
+                      <div className="form-group">
+                        <Field name="patient_id" placeholder="Patient unique ID" className="form-control" />
+                        <ErrorMessage name="patient_id" component="div" className="text-danger pl-2" />
                       </div>
-                    )}
-                  </FieldArray>
-                  <div className="form-group pull-right">
-                    <button type="submit" disabled={isSubmitting} className="btn btn-lg btn-primary btn-block">
-                      Submit Samples
-                    </button>
-                  </div>
+                      <FieldArray name="samples">
+                        {(arrayHelpers) => (
+                          <div>
+                            <button
+                              type="button"
+                              className="btn btn-success btn-sm mb-3"
+                              onClick={() => arrayHelpers.push({ name: '', test_id: '' })}
+                            >
+                              Add Sample
+                            </button>
+                            {values.samples.map((sample, index) => {
+                              return (
+                                <div className="row" key={index}>
+                                  <div className=" col-md-5 form-group">
+                                    <Field
+                                      name={`samples.${index}.name`}
+                                      placeholder="Sample name"
+                                      className="form-control"
+                                    />
+                                    <ErrorMessage
+                                      name={`samples.${index}.name`}
+                                      component="div"
+                                      className="text-danger pl-2"
+                                    />
+                                  </div>
+                                  <div className=" col-md-5 form-group">
+                                    <Field as="select" name={`samples.${index}.test_id`} className="form-control">
+                                      <option value="" disabled selected>
+                                        Select a test
+                                      </option>
+                                      {selectOptions}
+                                    </Field>
+                                    <ErrorMessage
+                                      name={`samples.${index}.test_id`}
+                                      component="div"
+                                      className="text-danger pl-2"
+                                    />
+                                  </div>
 
-                  {/* <pre>{JSON.stringify(values, null, 2)}</pre> */}
-                  {/* <pre>{JSON.stringify(values)}</pre> */}
-                </Form>
-              )}
-            </Formik>
+                                  <div className="col-md-2 form-group">
+                                    <button
+                                      type="button"
+                                      className="btn btn-sm btn-danger p-1 "
+                                      onClick={() => arrayHelpers.remove(index)}
+                                    >
+                                      Remove
+                                    </button>
+                                  </div>
+                                </div>
+                              )
+                            })}
+                          </div>
+                        )}
+                      </FieldArray>
+                      <div className="form-group pull-right">
+                        <button type="submit" disabled={isSubmitting} className="btn btn-lg btn-primary btn-block">
+                          Submit Samples
+                        </button>
+                      </div>
+                      {/* <pre>{JSON.stringify(values, null, 2)}</pre> */}
+                      {/* <pre>{JSON.stringify(values.samples)}</pre> */}
+                    </Form>
+                  )}
+                </Formik>
+              </div>
+            </div>
           </div>
           <div className="col-md-4 text-center">
             {/* <h2 className="">Bill</h2>

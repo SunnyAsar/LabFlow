@@ -33,3 +33,17 @@ export const getPatients = () => {
       })
   }
 }
+
+export const getPatient = (id) => {
+  return (dispatch) => {
+    axios
+      .get(`${BASE_URL}/patients/${id}`)
+      .then((res) => {
+        console.log(res)
+        dispatch({ type: SET_PATIENT, payload: res.data })
+      })
+      .catch((err) => {
+        console.log(err.response.data)
+      })
+  }
+}

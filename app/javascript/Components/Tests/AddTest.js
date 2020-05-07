@@ -16,52 +16,60 @@ class AddTest extends Component {
         <h2 className="pl-2"> Add Tests </h2>
         <div className="row">
           <div className="col-md-5">
-            <Formik
-              initialValues={{
-                name: '',
-                amount: 0,
-                description: '',
-                processing_time: null
-              }}
-              validationSchema={validation}
-              onSubmit={(values, { setSubmitting, restForm }) => {
-                setSubmitting(true)
-                this, this.props.postTest({ test: values })
-                restForm(true)
-                setSubmitting(false)
-              }}
-            >
-              {({ isSubmitting }) => (
-                <Form>
-                  <div className="form-group">
-                    <Field name="name" className="form-control" placeholder="Test name" />
-                    <ErrorMessage name="name" component="div" className="text-danger pl-2" />
-                  </div>
-                  <div className="form-group">
-                    <Field name="amount" type="number" className="form-control" placeholder="Test amount" />
-                    <ErrorMessage name="amount" component="div" className="text-danger pl-2" />
-                  </div>
-                  <div className="form-group">
-                    <Field
-                      name="description"
-                      as="textarea"
-                      rows="4"
-                      className="form-control"
-                      placeholder="Test Description"
-                    />
-                    <ErrorMessage name="description" component="div" className="text-danger pl-2" />
-                  </div>
-                  <div className="form-group pull-right">
-                    <button type="submit" disabled={isSubmitting} className="btn btn-primary btn-block">
-                      Add Test
-                    </button>
-                  </div>
-                </Form>
-              )}
-            </Formik>
+            <div className="card">
+              <div className="card-body">
+                <Formik
+                  initialValues={{
+                    name: '',
+                    amount: 0,
+                    description: '',
+                    processing_time: null
+                  }}
+                  validationSchema={validation}
+                  onSubmit={(values, { setSubmitting, restForm }) => {
+                    setSubmitting(true)
+                    this, this.props.postTest({ test: values })
+                    restForm(true)
+                    setSubmitting(false)
+                  }}
+                >
+                  {({ isSubmitting }) => (
+                    <Form>
+                      <div className="form-group">
+                        <Field name="name" className="form-control" placeholder="Test name" />
+                        <ErrorMessage name="name" component="div" className="text-danger pl-2" />
+                      </div>
+                      <div className="form-group">
+                        <Field name="amount" type="number" className="form-control" placeholder="Test amount" />
+                        <ErrorMessage name="amount" component="div" className="text-danger pl-2" />
+                      </div>
+                      <div className="form-group">
+                        <Field
+                          name="description"
+                          as="textarea"
+                          rows="4"
+                          className="form-control"
+                          placeholder="Test Description"
+                        />
+                        <ErrorMessage name="description" component="div" className="text-danger pl-2" />
+                      </div>
+                      <div className="form-group pull-right">
+                        <button type="submit" disabled={isSubmitting} className="btn btn-primary btn-block">
+                          Add Test
+                        </button>
+                      </div>
+                    </Form>
+                  )}
+                </Formik>
+              </div>
+            </div>
           </div>
-          <div className="col-md-6">
-            <Tests />
+          <div className="col-md-7">
+            <div className="card">
+              <div className="card-body">
+                <Tests />
+              </div>
+            </div>
           </div>
         </div>
       </div>

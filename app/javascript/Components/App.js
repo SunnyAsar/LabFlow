@@ -18,25 +18,25 @@ const App = () => {
   return (
     <div>
       <Router>
-        <div class="left-side-menu">
-          <div class="sidebar-content">
+        <div className="left-side-menu">
+          <div className="sidebar-content">
             <div id="sidebar-menu" className="slimscroll-menu">
               <Aside toggle={open} />
             </div>
-            <div class="clearfix" />
+            <div className="clearfix" />
           </div>
         </div>
 
-        <div class="content-page">
-          <div class="content">
-            <div class="container-fluid">
-              <div class="row page-title">
-                <div class="col-md-12">
+        <div className="content-page">
+          <div className="content">
+            <div className="container-fluid">
+              <div className="row page-title">
+                <div className="col-md-12">
                   <Switch>
                     <Route exact path="/" component={Dashboard} />
                     <Route exact path="/patients" component={Patients} />
-                    <Route path="/patient/:id" component={Patient} />
-                    <Route path="/patients/new" component={AddPatient} />
+                    <Route path="/patients/:id" component={Patient} />
+                    <Route exact path="/patient/new" component={AddPatient} />
                     <Route path="/tests/new" component={AddTest} />
                     <Route exact path="/samples" component={Samples} />
                     <Route path="/samples/new" component={AddSample} />
@@ -46,12 +46,12 @@ const App = () => {
             </div>
           </div>
 
-          <footer class="footer">
-            <div class="container-fluid">
-              <div class="row">
-                <div class="col-12">
+          <footer className="footer">
+            <div className="container-fluid">
+              <div className="row">
+                <div className="col-12">
                   2020 &copy; Lab Flow. All Rights Reserved. Crafted with{' ❤️'}
-                  <i class="uil uil-heart text-danger font-size-12" /> by{' '}
+                  <i className="uil uil-heart text-danger font-size-12" /> by{' '}
                   <a href="https://twitter.com/sunny_asar" target="_blank">
                     Joker
                   </a>

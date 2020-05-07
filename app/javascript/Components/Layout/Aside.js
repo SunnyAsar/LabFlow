@@ -50,7 +50,7 @@ class Aside extends Component {
               <CollapsibleList
                 iconName={'email'}
                 name="Patients"
-                collapseItems={[{ name: 'Patients', to: '/patients' }, { name: 'Add Patient', to: '/patients/new' }]}
+                collapseItems={[{ name: 'Patients', to: '/patients' }, { name: 'Add Patient', to: '/patient/new' }]}
               />
               <CollapsibleList
                 iconName={'business_center'}
