@@ -48,6 +48,17 @@ class Patient extends Component {
             <div className="card">
               <div className="card-body">
                 <h2 className="h4 text-center text-primary"> Patient Stats </h2>
+                <div className="row text-center justify-content-around">
+                  <div className="col-4 border border-primary">
+                    <p className="h4 text-dark">Samples</p>
+                    <h1 className="text-primary"> 30</h1>
+                  </div>
+                  <div className="col-4 border border-warning">
+                    <p className="h4 text-secondary">Unpaid Bill</p>
+                    <h1 className="text-danger">0</h1>
+                  </div>
+                  {/* <div className="col"></div> */}
+                </div>
               </div>
             </div>
           </div>
