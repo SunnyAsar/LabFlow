@@ -17,9 +17,10 @@ const Sample = ({ sample }) => {
 }
 
 const SampleTable = ({ samples }) => {
-  const TableData = samples.map((sample) => <Sample sample={sample} />)
-  return (
-    <table class="table table-striped">
+  const TableData = samples.map((sample) => <Sample key={sample.id} sample={sample} />)
+
+  return samples.length > 0 ? (
+    <table className="table table-striped">
       <thead className="thead-dark">
         <tr>
           <th scope="col">#Sample ID</th>
@@ -31,6 +32,8 @@ const SampleTable = ({ samples }) => {
       </thead>
       <tbody>{TableData}</tbody>
     </table>
+  ) : (
+    <h4 className="text-center text-secondary mt-4">There are no Samples </h4>
   )
 }
 

@@ -23,7 +23,7 @@ class Patient extends Component {
     } = this.props.patient
     return (
       <div>
-        <div className="row mb-4 pl-3 align-items-center">
+        <div className="row mb-2 pl-3 align-items-center">
           <span className="mr-4">
             <Link to="/patients">
               <button className="btn btn-rounded  btn-sm btn-outline-primary"> ← Back</button>
@@ -39,7 +39,7 @@ class Patient extends Component {
                 <div className="row d-flex justify-content-cente p-2">
                   <span className="h6 label pr-4">Name:</span>
                   <span className="h5 flex-end">
-                    {first_name} {last_name} {middle_name ? middle_name : '---'}
+                    {first_name} {last_name} {middle_name}
                   </span>
                 </div>
                 <div className="row d-flex justify-content-cente p-2">
@@ -64,22 +64,25 @@ class Patient extends Component {
                   <h2 className="h4 mb-4 text-primary"> Patient Stats </h2>
                   <div className="row text-center justify-content-around">
                     <div className="col-4 border border-primary">
-                      <p className="h5 text-dark">Samples</p>
-                      <h1 className="text-primary"> {samples_count}</h1>
+                      <p className="h6 text-dark">Samples</p>
+                      <h1 className="h3 text-primary"> {samples_count}</h1>
                     </div>
                     <div className="col-4 border border-warning">
-                      <p className="h5 text-dark">Unpaid Bill</p>
-                      <h1 className="text-danger">0</h1>
+                      <p className="h6 text-dark">Unpaid Bill</p>
+                      <h1 className="h3 text-danger">0</h1>
                     </div>
                     {/* <div className="col"></div> */}
                   </div>
                 </div>
               </div>
             </div>
-            <div className="row">
-              <h3>patient's recent samples</h3>
-              {/* {<SampleTable samples={samples} />} */}
-              {/* {alert(samples)} */}
+            <div className="">
+              <div className="card">
+                <div className="card-body">
+                  <h3 className="h4 text-primary"> Recent samples</h3>
+                  {samples && <SampleTable samples={samples} />}
+                </div>
+              </div>
             </div>
           </div>
         </div>
