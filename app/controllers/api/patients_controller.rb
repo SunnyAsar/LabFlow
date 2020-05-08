@@ -2,11 +2,11 @@
 
 class Api::PatientsController < ApplicationController
   # before_action :patients_params, only: [:create,:update]
-  before_action :set_patient, only: %i[show destroy]
+  before_action :set_patient, only: %i[destroy]
 
   def index
     @patients = Patient.all
-    render json: @patients
+    render :index, status: :ok
   end
 
   def create
@@ -20,7 +20,8 @@ class Api::PatientsController < ApplicationController
   end
 
   def show
-    render json: @patient
+    @patient = Patient.includes(:samples).find(params[:id])
+    render :show, status: :ok
   end
 
   def update; end

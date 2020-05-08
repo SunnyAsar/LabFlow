@@ -12,12 +12,14 @@ class Patient extends Component {
     const { first_name, last_name, middle_name, phone, email, contact_address, pid } = this.props.patient
     return (
       <div>
-        <span className="mr-4">
-          <Link to="/patients">
-            <button className="btn btn-rounded  btn-sm btn-outline-primary"> ← Back</button>
-          </Link>
-        </span>
-        <h2 className="text-primary">Patient</h2>
+        <div className="row mb-4 pl-3 align-items-center">
+          <span className="mr-4">
+            <Link to="/patients">
+              <button className="btn btn-rounded  btn-sm btn-outline-primary"> ← Back</button>
+            </Link>
+          </span>
+          <h3 className="text-primary h3">Patient's Data</h3>
+        </div>
         <div className="row">
           <div className="col-md-5">
             <div className="card">
@@ -47,14 +49,14 @@ class Patient extends Component {
           <div className="col-md-7">
             <div className="card">
               <div className="card-body">
-                <h2 className="h4 text-center text-primary"> Patient Stats </h2>
+                <h2 className="h4 mb-4 text-primary"> Patient Stats </h2>
                 <div className="row text-center justify-content-around">
                   <div className="col-4 border border-primary">
-                    <p className="h4 text-dark">Samples</p>
+                    <p className="h5 text-dark">Samples</p>
                     <h1 className="text-primary"> 30</h1>
                   </div>
                   <div className="col-4 border border-warning">
-                    <p className="h4 text-secondary">Unpaid Bill</p>
+                    <p className="h5 text-dark">Unpaid Bill</p>
                     <h1 className="text-danger">0</h1>
                   </div>
                   {/* <div className="col"></div> */}
