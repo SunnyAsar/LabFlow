@@ -1,46 +1,17 @@
 import React, { Component } from 'react'
 import { getSamples } from '../../Actions/sampleActions'
 import { connect } from 'react-redux'
+import SampleTable from './SampleTable'
 
-const Sample = ({ sample }) => {
-  return (
-    <tr>
-      <th scope="row" className="text-success">
-        {sample.sample_id}
-      </th>
-      <td>{sample.name}</td>
-      <td>Test</td>
-      <td>{sample.status}</td>
-      <td>
-        <button className="btn btn-success btn-sm">View</button>
-      </td>
-    </tr>
-  )
-}
-
-export class Samples extends Component {
+class Samples extends Component {
   componentDidMount () {
     this.props.fetchSamples()
   }
   render () {
-    const TableData = this.props.samples.map((sample) => <Sample sample={sample} />)
     return (
       <div>
         <h2> Samples</h2>
-        <div>
-          <table class="table table-striped">
-            <thead className="thead-dark">
-              <tr>
-                <th scope="col">#Sample ID</th>
-                <th scope="col">Sample Taken</th>
-                <th scope="col">Test Performed</th>
-                <th scope="col">Status</th>
-                <th scope="col">Action</th>
-              </tr>
-            </thead>
-            <tbody>{TableData}</tbody>
-          </table>
-        </div>
+        <div>{<SampleTable samples={this.props.samples} />}</div>
       </div>
     )
   }

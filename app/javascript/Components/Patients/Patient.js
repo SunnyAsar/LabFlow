@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { getPatient } from '../../Actions/patientActions'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import SampleTable from '../Samples/SampleTable'
 
 class Patient extends Component {
   componentDidMount () {
@@ -9,7 +10,17 @@ class Patient extends Component {
     this.props.fetchPatient(id)
   }
   render () {
-    const { first_name, last_name, middle_name, phone, email, contact_address, pid } = this.props.patient
+    const {
+      first_name,
+      last_name,
+      middle_name,
+      phone,
+      email,
+      samples_count,
+      contact_address,
+      pid,
+      samples
+    } = this.props.patient
     return (
       <div>
         <div className="row mb-4 pl-3 align-items-center">
@@ -47,21 +58,28 @@ class Patient extends Component {
             </div>
           </div>
           <div className="col-md-7">
-            <div className="card">
-              <div className="card-body">
-                <h2 className="h4 mb-4 text-primary"> Patient Stats </h2>
-                <div className="row text-center justify-content-around">
-                  <div className="col-4 border border-primary">
-                    <p className="h5 text-dark">Samples</p>
-                    <h1 className="text-primary"> 30</h1>
+            <div className="">
+              <div className="card">
+                <div className="card-body">
+                  <h2 className="h4 mb-4 text-primary"> Patient Stats </h2>
+                  <div className="row text-center justify-content-around">
+                    <div className="col-4 border border-primary">
+                      <p className="h5 text-dark">Samples</p>
+                      <h1 className="text-primary"> {samples_count}</h1>
+                    </div>
+                    <div className="col-4 border border-warning">
+                      <p className="h5 text-dark">Unpaid Bill</p>
+                      <h1 className="text-danger">0</h1>
+                    </div>
+                    {/* <div className="col"></div> */}
                   </div>
-                  <div className="col-4 border border-warning">
-                    <p className="h5 text-dark">Unpaid Bill</p>
-                    <h1 className="text-danger">0</h1>
-                  </div>
-                  {/* <div className="col"></div> */}
                 </div>
               </div>
+            </div>
+            <div className="row">
+              <h3>patient's recent samples</h3>
+              {/* {<SampleTable samples={samples} />} */}
+              {/* {alert(samples)} */}
             </div>
           </div>
         </div>
