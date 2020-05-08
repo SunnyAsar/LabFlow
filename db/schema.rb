@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_24_225309) do
+ActiveRecord::Schema.define(version: 2020_05_08_114744) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2020_04_24_225309) do
     t.uuid "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "samples_count", default: 0
     t.index ["user_id"], name: "index_patients_on_user_id"
   end
 
