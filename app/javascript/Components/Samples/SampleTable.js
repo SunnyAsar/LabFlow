@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 const Sample = ({ sample }) => {
   return (
@@ -10,7 +11,9 @@ const Sample = ({ sample }) => {
       <td>Test</td>
       <td>{sample.status}</td>
       <td>
-        <button className="btn btn-outline-success btn-rounded btn-sm">View</button>
+        <Link to={`/samples/${sample.id}`}>
+          <button className="btn btn-outline-success px-3 btn-rounded btn-sm">View</button>
+        </Link>
       </td>
     </tr>
   )

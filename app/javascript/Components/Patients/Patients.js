@@ -13,7 +13,7 @@ const Patient = ({ patient }) => {
       <td>{patient.last_name}</td>
       <td>{patient.phone}</td>
       <td>
-        <Link to={`/patients/${patient.id}`} className="btn btn-sm btn-rounded btn-outline-success">
+        <Link to={`/patients/${patient.id}`} className="btn px-3 btn-sm btn-rounded btn-outline-success">
           View
         </Link>
       </td>

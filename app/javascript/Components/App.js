@@ -7,6 +7,7 @@ import AddPatient from './Patients/AddPatient'
 import AddTest from './Tests/AddTest'
 import AddSample from './Samples/AddSample'
 import Samples from './Samples/Samples'
+import Sample from './Samples/Sample'
 
 import Aside from './Layout/Aside'
 import 'simplebar/dist/simplebar.min.css'
@@ -39,7 +40,8 @@ const App = () => {
                     <Route exact path="/patient/new" component={AddPatient} />
                     <Route path="/tests/new" component={AddTest} />
                     <Route exact path="/samples" component={Samples} />
-                    <Route path="/samples/new" component={AddSample} />
+                    <Route exact path="/samples/:id" component={Sample} />
+                    <Route path="/sample/new" component={AddSample} />
                   </Switch>
                 </div>
               </div>
