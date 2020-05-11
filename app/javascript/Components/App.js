@@ -40,7 +40,7 @@ const App = () => {
                     <Route exact path="/patient/new" component={AddPatient} />
                     <Route path="/tests/new" component={AddTest} />
                     <Route exact path="/samples" component={Samples} />
-                    <Route exact path="/samples/:id" component={Sample} />
+                    <Route path="/samples/:id" component={Sample} />
                     <Route path="/sample/new" component={AddSample} />
                   </Switch>
                 </div>

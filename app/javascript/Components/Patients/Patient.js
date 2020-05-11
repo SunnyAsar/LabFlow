@@ -10,17 +10,7 @@ class Patient extends Component {
     this.props.fetchPatient(id)
   }
   render () {
-    const {
-      first_name,
-      last_name,
-      middle_name,
-      phone,
-      email,
-      samples_count,
-      contact_address,
-      pid,
-      samples
-    } = this.props.patient
+    const { full_name, phone, email, samples_count, contact_address, pid, samples } = this.props.patient
     return (
       <div>
         <div className="row mb-2 pl-3 align-items-center">
@@ -38,9 +28,7 @@ class Patient extends Component {
                 <h2 className="text-success h2 bold text-center"> {pid}</h2>
                 <div className="row d-flex justify-content-cente p-2">
                   <span className="h6 label pr-4">Name:</span>
-                  <span className="h5 flex-end">
-                    {first_name} {last_name} {middle_name}
-                  </span>
+                  <span className="h5 flex-end">{full_name}</span>
                 </div>
                 <div className="row d-flex justify-content-cente p-2">
                   <span className="h6 label pr-4">Phone:</span>

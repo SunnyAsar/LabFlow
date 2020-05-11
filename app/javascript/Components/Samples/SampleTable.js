@@ -8,8 +8,8 @@ const Sample = ({ sample }) => {
         {sample.sample_id}
       </th>
       <td>{sample.name}</td>
-      <td>Test</td>
-      <td>{sample.status}</td>
+      <td>{sample.test_name}</td>
+      <td>{sample.test_status}</td>
       <td>
         <Link to={`/samples/${sample.id}`}>
           <button className="btn btn-outline-success px-3 btn-rounded btn-sm">View</button>
