@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 class Api::SamplesController < ApplicationController
-  before_action :set_sample, only: [:show]
+  # before_action :set_sample, only: [:show]
 
   def index
-    @samples = Sample.all
-    render json: @samples
+    @samples = find_sample.all
+    render :index
   end
 
   def create
@@ -32,7 +32,10 @@ class Api::SamplesController < ApplicationController
     render json: @saved_samples, status: :ok
   end
 
-  def show; end
+  def show
+    @sample = find_sample.find(params[:id])
+    render :show
+  end
 
   private
 
@@ -46,5 +49,9 @@ class Api::SamplesController < ApplicationController
 
   def set_sample
     @sample = Sample.find(params[:id])
+  end
+
+  def find_sample
+    Sample.includes(:test, :patient, :user)
   end
 end

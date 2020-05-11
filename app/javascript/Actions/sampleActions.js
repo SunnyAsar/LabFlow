@@ -29,3 +29,17 @@ export const postSamples = (samples, history) => {
       })
   }
 }
+
+export const getSample = (id) => {
+  return (dispatch) => {
+    axios
+      .get(`${BASE_URL}/samples/${id}`)
+      .then((res) => {
+        console.log(res)
+        dispatch({ type: SET_SAMPLE, payload: res.data })
+      })
+      .catch((err) => {
+        console.log(err.response.data)
+      })
+  }
+}
