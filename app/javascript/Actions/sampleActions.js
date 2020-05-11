@@ -22,7 +22,7 @@ export const postSamples = (samples, history) => {
       .then((res) => {
         console.log(res)
         dispatch({ type: SET_SAMPLES, payload: res.data })
-        history.push('/samples')
+        // history.push('/samples')
       })
       .catch((err) => {
         console.log(err.response.data)

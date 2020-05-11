@@ -8,4 +8,19 @@ class Sample < ApplicationRecord
   belongs_to :test
 
   enum status: %i[taken processing ready collected]
+
+  def add_sample(patient_id)
+    @sample = self
+    @sample.amount = sample_amount(self[:test_id])
+    @sample.patient_id = patient_id
+    @sample.sample_id = SecureRandom.alphanumeric(8)
+    @sample.status = 0
+    @sample
+  end
+
+  private
+
+  def sample_amount(data)
+    Test.find(data).amount
+  end
 end
