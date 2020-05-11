@@ -1,0 +1,1 @@
+json.partial! 'api/samples/sample', sample: @sample
