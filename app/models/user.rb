@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :patients
   has_many :tests
   has_many :samples
+  has_many :bills
 
   def full_name
     "#{first_name} #{last_name}"

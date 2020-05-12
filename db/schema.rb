@@ -10,11 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_08_114744) do
+ActiveRecord::Schema.define(version: 2020_05_12_111029) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
+
+  create_table "bills", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "name", null: false
+    t.uuid "user_id", null: false
+    t.uuid "patient_id", null: false
+    t.integer "bill_total", default: 0
+    t.decimal "paid_amount", default: "0.0"
+    t.boolean "payment_status", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["patient_id"], name: "index_bills_on_patient_id"
+    t.index ["user_id"], name: "index_bills_on_user_id"
+  end
 
   create_table "patients", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "first_name", null: false
@@ -41,6 +54,8 @@ ActiveRecord::Schema.define(version: 2020_05_08_114744) do
     t.integer "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.uuid "bill_id"
+    t.index ["bill_id"], name: "index_samples_on_bill_id"
     t.index ["patient_id"], name: "index_samples_on_patient_id"
     t.index ["test_id"], name: "index_samples_on_test_id"
     t.index ["user_id"], name: "index_samples_on_user_id"
@@ -78,7 +93,10 @@ ActiveRecord::Schema.define(version: 2020_05_08_114744) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bills", "patients"
+  add_foreign_key "bills", "users"
   add_foreign_key "patients", "users"
+  add_foreign_key "samples", "bills"
   add_foreign_key "samples", "patients"
   add_foreign_key "samples", "tests"
   add_foreign_key "samples", "users"
