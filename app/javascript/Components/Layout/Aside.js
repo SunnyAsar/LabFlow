@@ -64,7 +64,7 @@ class Aside extends Component {
               <CollapsibleList
                 iconName={'description'}
                 name="BIlling"
-                collapseItems={[{ name: 'Bills' }, { name: 'Income/Expense' }, { name: 'Transactions' }]}
+                collapseItems={[{ name: 'Bills', to: '/bills' }, { name: 'Income/Expense' }, { name: 'Transactions' }]}
               />
 
               <ListHeader headName="HR" />
