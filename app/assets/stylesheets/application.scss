@@ -13,4 +13,19 @@
  *= require_tree .
  *= require_self
  */
-@import 'bootstrap/scss/bootstrap';
+
+// .fixed_header tbody {
+//   display: inline-block;
+//   width: 100%;
+//   overflow: auto;
+//   height: 400px;
+// }
+
+.wrapper {
+  max-height: 70vh;
+  overflow-y: auto;
+  display: inline-block;
+  width: 100%;
+}
+
+// @import 'bootstrap/scss/bootstrap';

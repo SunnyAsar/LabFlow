@@ -31,8 +31,8 @@ class Patients extends Component {
     return (
       <div>
         <h2>Patients</h2> <br />
-        <div>
-          <table className="table table-striped">
+        <div className="wrapper">
+          <table className="table table-striped ">
             <thead className="thead-dark">
               <tr>
                 <th scope="col">#Patient ID</th>

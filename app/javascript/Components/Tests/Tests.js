@@ -20,7 +20,7 @@ class Tests extends Component {
       )
     })
     return (
-      <div>
+      <div className="wrapper">
         <table class="table table-striped">
           <thead className="thead-dark">
             <tr>

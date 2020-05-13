@@ -23,18 +23,20 @@ const SampleTable = ({ samples }) => {
   const TableData = samples.map((sample) => <Sample key={sample.id} sample={sample} />)
 
   return samples.length > 0 ? (
-    <table className="table table-striped">
-      <thead className="thead-dark">
-        <tr>
-          <th scope="col">#Sample ID</th>
-          <th scope="col">Sample Taken</th>
-          <th scope="col">Test Performed</th>
-          <th scope="col">Status</th>
-          <th scope="col">Action</th>
-        </tr>
-      </thead>
-      <tbody>{TableData}</tbody>
-    </table>
+    <div className=" wrapper ">
+      <table className="table table-striped fixed_header">
+        <thead className="thead-dark ">
+          <tr>
+            <th scope="col">#Sample ID</th>
+            <th scope="col">Sample Taken</th>
+            <th scope="col">Test Performed</th>
+            <th scope="col">Status</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>{TableData}</tbody>
+      </table>
+    </div>
   ) : (
     <h4 className="text-center text-secondary mt-4">There are no Samples </h4>
   )
