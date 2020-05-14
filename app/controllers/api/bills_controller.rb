@@ -8,6 +8,6 @@ class Api::BillsController < ApplicationController
 
   def show
     @bill = Bill.includes(:samples, :patient).find(params[:id])
-    render json: @bill
+    render :show
   end
 end
