@@ -14,3 +14,17 @@ export const getBills = () => {
       })
   }
 }
+
+export const getBill = (id) => {
+  return (dispatch) => {
+    axios
+      .get(`${BASE_URL}/bills/${id}`)
+      .then((res) => {
+        console.log(res)
+        dispatch({ type: SET_BILL, payload: res.data })
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }
+}
