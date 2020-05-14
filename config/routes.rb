@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'bills/index'
+  get 'bills/show'
   get 'samples/index'
   get 'samples/create'
   get 'samples/show'
@@ -11,6 +13,7 @@ Rails.application.routes.draw do
     resources :patients
     resources :tests
     resources :samples
+    resources :bills
   end
 
   get '*a', to: 'home#index'
