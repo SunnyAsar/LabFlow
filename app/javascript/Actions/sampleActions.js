@@ -25,7 +25,8 @@ export const postSamples = (samples, history) => {
         // history.push('/samples')
       })
       .catch((err) => {
-        console.log(err.response.data)
+        console.log('error here .........')
+        console.log(err)
       })
   }
 }
