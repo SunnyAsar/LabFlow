@@ -38,8 +38,8 @@ const BillTable = ({ bills }) => {
         <thead className="thead-dark">
           <tr>
             <th scope="col">Name</th>
-            <th scope="col">Patient</th>
             <th scope="col">#Samples </th>
+            <th scope="col">Patient</th>
             <th scope="col">Payment</th>
             <th scope="col">created</th>
             <th scope="col">Action</th>
