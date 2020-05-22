@@ -1,6 +1,6 @@
 import React, { Component, useState } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import Dashboard from './Dashboard'
+import Dashboard from './Dashboard/Dashboard'
 import Patients from './Patients/Patients'
 import Patient from './Patients/Patient'
 import AddPatient from './Patients/AddPatient'

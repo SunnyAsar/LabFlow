@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'dasboard/index'
   get 'bills/index'
   get 'bills/show'
   get 'samples/index'
@@ -14,6 +15,7 @@ Rails.application.routes.draw do
     resources :tests
     resources :samples
     resources :bills
+    resources :dashboard, only: [:index]
   end
 
   get '*a', to: 'home#index'
