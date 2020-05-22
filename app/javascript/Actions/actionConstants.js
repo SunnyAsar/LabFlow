@@ -11,3 +11,6 @@ export const SET_SAMPLE = 'SET_SAMPLE'
 
 export const SET_BILLS = 'SET_BILLS'
 export const SET_BILL = 'SET_BILL'
+
+export const SET_DASHBOARD = 'SET_DASHBOARD'
+export const SET_DASH_COUNT = 'SET_DASH_COUNT'
