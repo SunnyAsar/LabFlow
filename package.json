@@ -12,7 +12,7 @@
     "@rmwc/icon-button": "^6.0.14",
     "@rmwc/list": "^6.0.14",
     "@rmwc/menu": "^6.0.14",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "bootstrap": "^4.4.1",
     "formik": "^2.1.4",
